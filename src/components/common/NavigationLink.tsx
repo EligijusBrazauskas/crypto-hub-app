@@ -13,7 +13,7 @@ const NavigationLink = ({ pathTo, text, isActive, children }: Props) => {
 		<LinkWrapper isActive={isActive} className='w-full relative'>
 			<Link
 				to={pathTo}
-				className={`flex justify-center items-center w-full p-[15px] rounded-[16px] ${
+				className={`flex justify-center items-center w-full p-[15px] rounded-[16px] transition-all ${
 					isActive && 'bg-regularBlue'
 				}`}
 			>
@@ -39,8 +39,8 @@ const NavigationLink = ({ pathTo, text, isActive, children }: Props) => {
 };
 
 const LinkWrapper = styled.div<{ isActive: boolean }>`
-	${(props) =>
-		props.isActive &&
+	${({ isActive }) =>
+		isActive &&
 		`
     ::before {
       content: '';

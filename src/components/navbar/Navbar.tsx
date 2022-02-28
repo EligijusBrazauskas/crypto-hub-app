@@ -10,11 +10,11 @@ import Logo from '../common/Logo';
 
 const Navbar = () => {
 	return (
-		<div className='max-w-[250px] w-full min-h-screen py-[40px] px-[30px]'>
+		<div className='max-w-[250px] w-full min-h-screen py-[40px] px-[30px] fixed'>
 			<div className='mb-[40px] w-full'>
 				<Logo />
 			</div>
-			<div className='flex flex-col items-center justify-center gap-[16px]'>
+			<div className='flex flex-col items-center justify-center gap-[1px]'>
 				<NavigationLink pathTo={routes.home} text='Home' isActive={true}>
 					<HomeFilled />
 				</NavigationLink>

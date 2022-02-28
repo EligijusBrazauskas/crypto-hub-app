@@ -5,15 +5,15 @@ import {
 	CryptoDetailsView,
 	ExchangesView,
 	NewsView,
-	CryptoCurrenciesView,
+	CryptoCurrenciesView
 } from '../../views';
 import { routes } from '../../shared/router/routes';
 import { Routes, Route } from 'react-router-dom';
 
 const MainLayout = () => (
-	<div className='min-h-screen bg-lightestBlue flex'>
+	<div className='min-h-screen bg-lightestBlue flex pt-[15px] pr-[15px] pb-[15px]'>
 		<Navbar />
-		<div className='w-full'>
+		<div className='w-full ml-[250px]'>
 			<Routes>
 				<Route path={routes.home} element={<HomepageView />} />
 				<Route path={routes.cryptocurrencies} element={<CryptoCurrenciesView />} />

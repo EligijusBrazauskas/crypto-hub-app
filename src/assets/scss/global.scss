@@ -3,19 +3,29 @@
 @import './fonts.scss';
 
 .App {
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: -1px;
+	font-family: 'DM Sans', sans-serif;
+	letter-spacing: -1px;
 
-  h1 {
-    font-size: 24px;
-    font-weight: 700;
-    
-    @apply text-black text-large;
-  }
+	h1 {
+		font-size: 24px;
+		font-weight: 700;
 
-  .logo-text {
-    font-weight: 700;
-    
-    @apply text-black text-big;
-  }
+		@apply text-black text-large;
+	}
+
+	.logo-text {
+		font-weight: 700;
+
+		@apply text-black text-big;
+	}
+
+	.light-label {
+		@apply text-gray-400 text-secondary;
+	}
+
+	.number {
+		font-weight: 700;
+
+		@apply text-black text-regular;
+	}
 }
