@@ -1,0 +1,21 @@
+@import './reset.scss';
+@import './tailwind.scss';
+@import './fonts.scss';
+
+.App {
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -1px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 700;
+    
+    @apply text-black text-large;
+  }
+
+  .logo-text {
+    font-weight: 700;
+    
+    @apply text-black text-big;
+  }
+}
