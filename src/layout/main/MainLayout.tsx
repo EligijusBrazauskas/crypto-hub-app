@@ -8,7 +8,7 @@ import {
 	CryptoCurrenciesView
 } from '../../views';
 import { routes } from '../../shared/router/routes';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 const MainLayout = () => (
 	<div className='min-h-screen bg-lightestBlue flex pt-[15px] pr-[15px] pb-[15px]'>
@@ -17,9 +17,10 @@ const MainLayout = () => (
 			<Routes>
 				<Route path={routes.home} element={<HomepageView />} />
 				<Route path={routes.cryptocurrencies} element={<CryptoCurrenciesView />} />
-				<Route path={routes.cryptoDetails} element={<CryptoDetailsView />} />
+				<Route path={`${routes.cryptocurrencies}/:symbol`} element={<CryptoDetailsView />} />
 				<Route path={routes.exchanges} element={<ExchangesView />} />
 				<Route path={routes.news} element={<NewsView />} />
+				<Route path={'*'} element={<Navigate to={routes.home} />} />
 			</Routes>
 		</div>
 	</div>

@@ -15,17 +15,17 @@ const Navbar = () => {
 				<Logo />
 			</div>
 			<div className='flex flex-col items-center justify-center gap-[1px]'>
-				<NavigationLink pathTo={routes.home} text='Home' isActive={true}>
+				<NavigationLink pathTo={routes.home} text='Home' >
 					<HomeFilled />
 				</NavigationLink>
 				<NavigationLink
-					pathTo={routes.cryptocurrencies} text='Currencies' isActive={false}>
+					pathTo={routes.cryptocurrencies} text='Currencies' >
 					<FundFilled />
 				</NavigationLink>
-				<NavigationLink pathTo={routes.exchanges} text='Exchanges' isActive={false}>
+				<NavigationLink pathTo={routes.exchanges} text='Exchanges' >
 					<ProjectFilled />
 				</NavigationLink>
-				<NavigationLink pathTo={routes.news} text='News' isActive={false}>
+				<NavigationLink pathTo={routes.news} text='News' >
 					<BulbFilled />
 				</NavigationLink>
 			</div>

@@ -9,6 +9,7 @@ module.exports = {
       },
 
       colors: {
+        'nearlyWhite': '#fafcff',
         'lightestBlue': '#F1F6FE',
         'lightBlue': '#A8CEFF',
         'regularBlue': '#0F22FD',
@@ -28,6 +29,12 @@ module.exports = {
         'larger': '28px',
         'extraLarge': '32px',
         'largest': '48px',
+      },
+
+      boxShadow: {
+        'regular': '0px 8px 24px rgba(149, 157, 165, 0.2)',
+        'lightest-blue': '0px 8px 24px rgba(241, 246, 254, 1)',
+        'light-blue': '0px 0px 24px rgba(168, 206, 255, 0.3)'
       }
     },
   },

@@ -23,6 +23,28 @@
 		@apply text-gray-400 text-secondary;
 	}
 
+	.label-blue {
+		font-weight: 500;
+
+		@apply text-lighterRegularBlue text-secondary;
+
+		&:hover {
+			@apply text-regularBlue;
+		}
+	}
+
+	.regular-label {
+		font-weight: 500;
+
+		@apply text-black text-secondary;
+	}
+
+	.bold-label {
+		font-weight: 700;
+
+		@apply text-black text-secondary;
+	}
+
 	.number {
 		font-weight: 700;
 
