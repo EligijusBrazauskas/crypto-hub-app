@@ -1,11 +1,13 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
 import MainLayout from './layout/main/MainLayout';
 import './assets/scss/global.scss';
+import ScrollPositionProvider from './shared/context/scroll-position-context';
 
-const App = () => 
-  <div className='App'>
-    <MainLayout />
-  </div>;
+const App = () => (
+	<ScrollPositionProvider>
+		<div className='App'>
+			<MainLayout />
+		</div>
+	</ScrollPositionProvider>
+);
 
 export default App;

@@ -9,8 +9,8 @@ const newsHeaders = {
 const baseUrl = 'https://bing-news-search1.p.rapidapi.com';
 
 const newsSearchUrlParams = (category: string, count: number) => {
-  return `/news/search?q=${ category }&safeSearch=Off&textFormat=Raw&freshness=Day&count=${ count }`
-}
+	return `/news/search?q=${category}&safeSearch=Off&textFormat=Raw&freshness=Day&count=${count}`;
+};
 
 const createRequest = (url: string) => ({ url, headers: newsHeaders });
 
@@ -19,7 +19,8 @@ export const newsApi = createApi({
 	baseQuery: fetchBaseQuery({ baseUrl }),
 	endpoints: (builder) => ({
 		getNews: builder.query<any, any>({
-			query: ({ category, count }) => createRequest(newsSearchUrlParams(category, count))
+			query: ({ category, count }) =>
+				createRequest(newsSearchUrlParams(category, count))
 		})
 	})
 });

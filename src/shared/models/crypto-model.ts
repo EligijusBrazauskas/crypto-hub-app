@@ -1,4 +1,5 @@
 interface ICrypto {
+  uuid: string,
   rank: number,
   name: string,
   iconUrl: string,
@@ -9,6 +10,7 @@ interface ICrypto {
 }
 
 export class Crypto {
+  uuid: string;
   rank: number;
   name: string;
   iconUrl: string;
@@ -18,6 +20,7 @@ export class Crypto {
   symbol?: any;
 
   constructor(data: ICrypto) {
+    this.uuid = data.uuid,
     this.rank = data.rank,
     this.name = data.name,
     this.iconUrl = data.iconUrl,

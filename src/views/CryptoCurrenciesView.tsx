@@ -1,11 +1,9 @@
-import { useGetCryptosQuery } from '../../services/cryptoAPI';
-import Loading from '../../components/common/Loading';
-import { routes } from '../../shared/router/routes';
-import { Link } from 'react-router-dom';
-import { Crypto } from '../../shared/models/crypto-model';
-import CryptoCard from '../../components/common/CryptoCard';
-import { ChangeEventHandler, FormEvent, useEffect, useState } from 'react';
-import SearchBar from '../../components/common/SearchBar';
+import { useGetCryptosQuery } from '../shared/services/cryptoAPI';
+import Loading from '../components/common/Loading';
+import { Crypto } from '../shared/models/crypto-model';
+import CryptoCard from '../components/CryptoCard';
+import { useEffect, useState } from 'react';
+import SearchBar from '../components/common/SearchBar';
 
 const CryptoCurrenciesView = () => {
 	const [searchTerm, setSearchTerm] = useState('');
@@ -36,9 +34,9 @@ const CryptoCurrenciesView = () => {
 	if (isFetching) return <Loading />;
 
 	return (
-		<div className='min-w-full h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[40px] px-[20px]'>
-			<div className='flex flex-col gap-[40px]'>
-				<div className='flex justify-between items-center'>
+		<div className='min-w-full h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+			<div className='flex flex-col gap-[20px] sm:gap-[40px]'>
+				<div className='flex flex-col sm:flex-row gap-[16px] sm:gap-[0px] justify-between items-center'>
 					<h1>All Cryptos</h1>
 					<SearchBar getSearchValue={handleSearchTerm} placeholder='Search Crypto' />
 				</div>

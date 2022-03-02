@@ -1,15 +1,16 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface Props {
 	pathTo: any;
 	text: string;
 	children: any;
+	isMobile?: boolean;
 }
 
-const NavigationLink = ({ pathTo, text, children }: Props) => {
+const NavigationLink = ({ pathTo, text, children, isMobile }: Props) => {
 	return (
-		<LinkWrapper isActive={true} className='w-full relative'>
+		<LinkWrapper isActive={true} isMobile={isMobile} className='w-full relative'>
 			<NavLink
 				to={pathTo}
 				className={({ isActive }) =>
@@ -18,10 +19,10 @@ const NavigationLink = ({ pathTo, text, children }: Props) => {
 					}`
 				}
 			>
-				<div className='flex justify-start items-center gap-[16px] w-[105px] flex-wrap'>
+				<div className='flex justify-start items-center xs:gap-[16px] sm:w-[105px]'>
 					<div className='flex justify-center items-center text-regular'>{children}</div>
 					<div className='flex items-center justify-start'>
-						<span>{text}</span>
+						<span className='hidden xs:block'>{text}</span>
 					</div>
 				</div>
 			</NavLink>
@@ -29,10 +30,11 @@ const NavigationLink = ({ pathTo, text, children }: Props) => {
 	);
 };
 
-const LinkWrapper = styled.div<{ isActive: boolean }>`
+const LinkWrapper = styled.div<{ isActive: boolean; isMobile?: boolean }>`
 	.link-active {
-		${({ isActive }) =>
+		${({ isActive, isMobile }) =>
 			isActive &&
+			!isMobile &&
 			`
     ::before {
       content: '';
