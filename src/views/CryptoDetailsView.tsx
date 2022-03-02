@@ -32,7 +32,7 @@ const CryptoDetailsView = () => {
   if (isFetching) return <Loading />;
 
   return (
-    <div className='min-w-full h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+    <div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
       <div className='flex flex-col gap-[20px] sm:gap-[40px] sm:mb-[40px] h-full w-full'>
         <div className="flex flex-col gap-[8px] pb-[16px] border-b-2 border-lightBlue border-solid">
           <div className="flex items-center justify-between">

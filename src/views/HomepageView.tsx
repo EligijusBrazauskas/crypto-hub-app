@@ -27,7 +27,7 @@ const HomepageView = () => {
 	if (isFetching || isFetchingNews) return <Loading />;
 
 	return (
-		<div className='min-w-full h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+		<div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
 			<div className='flex flex-col items-center sm:items-start gap-[20px] sm:gap-[40px] mb-[20px] sm:mb-[40px]'>
 				<h1 className='text-center sm:text-left'>Global Crypto Statistics</h1>
 				<div className='flex flex-col gap-[16px] w-full'>

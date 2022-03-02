@@ -34,7 +34,7 @@ const CryptoCurrenciesView = () => {
 	if (isFetching) return <Loading />;
 
 	return (
-		<div className='min-w-full h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+		<div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
 			<div className='flex flex-col gap-[20px] sm:gap-[40px]'>
 				<div className='flex flex-col sm:flex-row gap-[16px] sm:gap-[0px] justify-between items-center'>
 					<h1>All Cryptos</h1>
