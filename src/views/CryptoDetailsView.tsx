@@ -44,7 +44,7 @@ const CryptoDetailsView = () => {
           <span className="regular-label text-center sm:text-left">{cryptoDetails?.name} live price in US dollars. View value statistics, market cap and supply.</span>
         </div>
         <div className='flex flex-col gap-[16px] w-full'>
-          <div className="flex flex-col md:flex-row gap-[16px] w-full">
+          <div className="flex flex-col lg:flex-row gap-[16px] w-full">
             <CryptoDetailsCard title={`${cryptoDetails?.name} Statistics`} statsArray={stats}/>
             <CryptoDetailsCard title='General Statistics' statsArray={genericStats}/>
           </div>
