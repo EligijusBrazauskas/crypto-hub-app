@@ -60,8 +60,8 @@ const CryptoDetailsView = () => {
             <h1>Links</h1>
             <div className="flex flex-col gap-[16px]">
               {
-                cryptoDetails.links.map((link: any) => (
-                  <div key={link.name} className="flex justify-between w-full">
+                cryptoDetails.links.map((link: any, i: any) => (
+                  <div key={i} className="flex justify-between w-full">
                     <span className="regular-label">{link.type}</span>
                     <a className='label-blue' href={link.url} target='_blank' rel='noreferrer'>{link.name}</a>
                   </div>
