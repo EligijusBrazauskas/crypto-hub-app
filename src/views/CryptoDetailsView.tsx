@@ -1,21 +1,21 @@
+import { CheckOutlined, DollarCircleFilled, ExclamationCircleFilled, ProfileFilled, ProjectFilled, StarFilled, StopOutlined, ThunderboltFilled } from "@ant-design/icons";
 import HTMLReactParser from "html-react-parser";
-import { useParams } from "react-router-dom";
 import millify from "millify";
-import { useGetCryptoDetailsQuery } from "../shared/services/cryptoAPI";
-import { CheckOutlined, DollarCircleFilled, ExclamationCircleFilled, ExclamationCircleOutlined, ExclamationOutlined, ProfileFilled, ProjectFilled, StarFilled, StopOutlined, ThunderboltFilled } from "@ant-design/icons";
-import Loading from "../components/common/Loading";
+import { useParams } from "react-router-dom";
 import CryptoDetailsCard from "../components/CrytpoDetailsCard";
+import Loading from "../components/common/Loading";
+import { useGetCryptoDetailsQuery } from "../shared/services/cryptoAPI";
 
 const CryptoDetailsView = () => {
 
-  const {coinId} = useParams();
+  const { coinId } = useParams();
 
-  const {data, isFetching} = useGetCryptoDetailsQuery(coinId);
+  const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
 
   const cryptoDetails = data?.data?.coin;
 
   const stats = [
-    { title: 'Price in USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleFilled/> },
+    { title: 'Price in USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleFilled /> },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <StarFilled /> },
     { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleFilled /> },
     { title: 'All-time-high (daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <ThunderboltFilled /> },
@@ -45,25 +45,25 @@ const CryptoDetailsView = () => {
         </div>
         <div className='flex flex-col gap-[16px] w-full'>
           <div className="flex flex-col lg:flex-row gap-[16px] w-full">
-            <CryptoDetailsCard title={`${cryptoDetails?.name} Statistics`} statsArray={stats}/>
-            <CryptoDetailsCard title='General Statistics' statsArray={genericStats}/>
+            <CryptoDetailsCard title={`${cryptoDetails?.name} Statistics`} statsArray={stats} />
+            <CryptoDetailsCard title='General Statistics' statsArray={genericStats} />
           </div>
           <div className="mt-[20px] sm:mt-[40px]">
             <div className="flex flex-col gap-[16px]">
-              <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-light-blue">
+              <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-light">
                 <h1>What is {cryptoDetails.name}</h1>
-                  {HTMLReactParser(cryptoDetails.description)}
+                {HTMLReactParser(cryptoDetails.description)}
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-light-blue mt-[20px] sm:mt-[40px]">
+          <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-ligh mt-[20px] sm:mt-[40px]">
             <h1>Links</h1>
             <div className="flex flex-col gap-[16px]">
               {
                 cryptoDetails.links.map((link: any, i: any) => (
                   <div key={i} className="flex justify-between w-full">
                     <span className="regular-label">{link.type}</span>
-                    <a className='label-blue' href={link.url} target='_blank' rel='noreferrer'>{link.name}</a>
+                    <a href={link.url} target='_blank' rel='noreferrer'>{link.name}</a>
                   </div>
                 ))
               }

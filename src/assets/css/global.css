@@ -1,0 +1,14 @@
+@import "./tailwind.css";
+@import "./fonts.css";
+
+html {
+	@apply bg-lightestBlue font-dmSans text-black;
+}
+
+h1 {
+	@apply font-bold text-2xl sm:text-large;
+}
+
+p {
+	@apply text-sm font-medium;
+}

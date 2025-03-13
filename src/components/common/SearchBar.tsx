@@ -1,24 +1,24 @@
 import styled from 'styled-components';
 
 interface Props {
-	getSearchValue: (value: any) => void;
-	placeholder?: string;
+  getSearchValue: (value: any) => void;
+  placeholder?: string;
 }
 
 const SearchBar = ({ getSearchValue, placeholder = 'search..' }: Props) => {
-	const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
-		getSearchValue(event.target.value);
-	};
+  const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    getSearchValue(event.target.value);
+  };
 
-	return (
-		<InputWrapper className='w-full sm:w-auto'>
-			<input
-				className='input bg-white shadow-lightest-blue px-[16px] py-[8px] rounded-[4px] text-secondary  w-full sm:w-[140px]'
-				placeholder={placeholder}
-				onChange={handleSearchInput}
-			/>
-		</InputWrapper>
-	);
+  return (
+    <InputWrapper className='w-full sm:w-auto'>
+      <input
+        className='input bg-white shadow-lighter px-[16px] py-[8px] rounded-[4px] text-sm  w-full sm:w-[140px]'
+        placeholder={placeholder}
+        onChange={handleSearchInput}
+      />
+    </InputWrapper>
+  );
 };
 
 const InputWrapper = styled.div`

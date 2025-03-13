@@ -1,27 +1,23 @@
+import { BulbFilled, FundFilled, HomeFilled } from '@ant-design/icons';
+import { Logo } from '..';
 import { routes } from '../../shared/router/routes';
-import { HomeFilled, FundFilled, BulbFilled } from '@ant-design/icons';
 import NavigationLink from '../common/NavigationLink';
-import Logo from '../common/Logo';
 
-const Navbar = () => {
-	return (
-		<div className='hidden sm:block max-w-[250px] w-full min-h-screen py-[40px] px-[30px] fixed'>
-			<div className='mb-[40px] w-full'>
-				<Logo />
-			</div>
-			<div className='flex flex-col items-center justify-center gap-[1px]'>
-				<NavigationLink pathTo={routes.home} text='Home'>
-					<HomeFilled />
-				</NavigationLink>
-				<NavigationLink pathTo={routes.cryptocurrencies} text='Currencies'>
-					<FundFilled />
-				</NavigationLink>
-				<NavigationLink pathTo={routes.news} text='News'>
-					<BulbFilled />
-				</NavigationLink>
-			</div>
-		</div>
-	);
-};
+const Navbar = () => (
+  <div className='flex-col gap-10 py-10 px-8 hidden sm:flex fixed w-64 bg-lightestBlue h-screen'>
+    <Logo />
+    <div className='flex flex-col w-full gap-2'>
+      <NavigationLink pathTo={routes.home} text='Home'>
+        <HomeFilled />
+      </NavigationLink>
+      <NavigationLink pathTo={routes.cryptocurrencies} text='Currencies'>
+        <FundFilled />
+      </NavigationLink>
+      <NavigationLink pathTo={routes.news} text='News'>
+        <BulbFilled />
+      </NavigationLink>
+    </div>
+  </div>
+);
 
 export default Navbar;
