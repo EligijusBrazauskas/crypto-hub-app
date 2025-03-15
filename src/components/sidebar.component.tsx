@@ -1,9 +1,9 @@
 import { BulbFilled, FundFilled, HomeFilled } from '@ant-design/icons';
-import { Logo } from '..';
-import { routes } from '../../shared/router/routes';
-import NavigationLink from '../common/NavigationLink';
+import { Logo } from 'components';
+import { routes } from 'shared/router/routes';
+import NavigationLink from './common/NavigationLink';
 
-const Navbar = () => (
+export const Sidebar = () => (
   <div className='flex-col gap-10 py-10 px-8 hidden sm:flex fixed w-64 bg-lightestBlue h-screen'>
     <Logo />
     <div className='flex flex-col w-full gap-2'>
@@ -19,5 +19,3 @@ const Navbar = () => (
     </div>
   </div>
 );
-
-export default Navbar;

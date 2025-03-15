@@ -1,7 +1,7 @@
+import { Sidebar } from 'components';
+import NavbarMobile from 'components/NavbarMobile';
 import { useContext } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
-import Navbar from '../components/navbar/Navbar';
-import NavbarMobile from '../components/navbar/NavbarMobile';
 import { HomePage } from '../pages';
 import { ScrollPositionContext } from '../shared/context/scroll-position-context';
 import { routes } from '../shared/router/routes';
@@ -17,7 +17,7 @@ export const MainLayout = () => {
   return (
     <>
       <div className='bg-lightestBlue flex flex-col min-h-screen'>
-        <Navbar />
+        <Sidebar />
         <div className='sm:ml-64 flex flex-1 py-4 pr-4'>
           <Routes >
             <Route path={routes.home} element={<HomePage />} />

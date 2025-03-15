@@ -8,26 +8,21 @@ interface Props {
   isMobile?: boolean;
 }
 
-const NavigationLink = ({ pathTo, text, children, isMobile }: Props) => {
-  return (
-    <LinkWrapper isActive={true} isMobile={isMobile} className='w-full relative'>
-      <NavLink
-        to={pathTo}
-        className={({ isActive }) =>
-          `flex justify-center items-center w-full p-[15px] rounded-[16px] transition-all ${isActive ? 'bg-regularBlue text-white link-active' : 'text-lightBlue'
-          }`
-        }
-      >
-        <div className='flex justify-start items-center sm:gap-[16px] sm:w-[105px]'>
-          <div className='flex justify-center items-center text-lg'>{children}</div>
-          <div className='flex items-center justify-start'>
-            <span className='hidden sm:block'>{text}</span>
-          </div>
+const NavigationLink = ({ pathTo, text, children, isMobile }: Props) => (
+  <LinkWrapper isActive={true} isMobile={isMobile} className='w-full relative'>
+    <NavLink
+      to={pathTo}
+      className={({ isActive }) => `flex justify-center items-center w-full p-[15px] rounded-[16px] transition-all ${isActive ? 'bg-regularBlue text-white link-active' : 'text-lightBlue'}`}
+    >
+      <div className='flex justify-start items-center sm:gap-[16px] sm:w-[105px]'>
+        <div className='flex justify-center items-center text-lg'>{children}</div>
+        <div className='flex items-center justify-start'>
+          <span className='hidden sm:block'>{text}</span>
         </div>
-      </NavLink>
-    </LinkWrapper>
-  );
-};
+      </div>
+    </NavLink>
+  </LinkWrapper>
+);
 
 const LinkWrapper = styled.div<{ isActive: boolean; isMobile?: boolean }>`
 	.link-active {
