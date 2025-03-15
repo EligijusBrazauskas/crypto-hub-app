@@ -16,7 +16,7 @@ export const MainLayout = () => {
 
   return (
     <>
-      <div className='bg-lightestBlue flex flex-col min-h-screen'>
+      <div className='bg-accent-blue flex flex-col min-h-screen'>
         <Sidebar />
         <div className='sm:ml-64 flex flex-1 py-4 pr-4'>
           <Routes >

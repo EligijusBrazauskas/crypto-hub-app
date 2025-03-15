@@ -4,7 +4,7 @@ import { routes } from 'shared/router/routes';
 import NavigationLink from './common/NavigationLink';
 
 export const Sidebar = () => (
-  <div className='flex-col gap-10 py-10 px-8 hidden sm:flex fixed w-64 bg-lightestBlue h-screen'>
+  <div className='flex-col gap-10 pt-14 pb-10 px-8 hidden sm:flex fixed w-64 bg-accent-blue h-screen'>
     <Logo />
     <div className='flex flex-col w-full gap-2'>
       <NavigationLink pathTo={routes.home} text='Home'>

@@ -1,14 +1,8 @@
-import { boxShadow, colors, fontFamily } from "./src/theme";
+import { theme } from "./src/theme";
 
 const config = {
 	content: ["./src/**/*.{js,jsx,ts,tsx}"],
-	theme: {
-		extend: {
-			colors,
-			fontFamily,
-			boxShadow,
-		},
-	},
+	theme,
 };
 
 export default config;

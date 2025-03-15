@@ -13,7 +13,7 @@ const SearchBar = ({ getSearchValue, placeholder = 'search..' }: Props) => {
   return (
     <InputWrapper className='w-full sm:w-auto'>
       <input
-        className='input bg-white shadow-lighter px-[16px] py-[8px] rounded-[4px] text-sm  w-full sm:w-[140px]'
+        className='input bg-white px-[16px] py-[8px] rounded-[4px] text-sm  w-full sm:w-[140px]'
         placeholder={placeholder}
         onChange={handleSearchInput}
       />

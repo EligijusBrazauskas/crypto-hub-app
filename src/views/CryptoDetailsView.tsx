@@ -32,9 +32,9 @@ const CryptoDetailsView = () => {
   if (isFetching) return <Loading />;
 
   return (
-    <div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-nearlyWhite rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+    <div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-accent-white rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
       <div className='flex flex-col gap-[20px] sm:gap-[40px] sm:mb-[40px] h-full w-full'>
-        <div className="flex flex-col gap-[8px] pb-[16px] border-b-2 border-lightBlue border-solid">
+        <div className="flex flex-col gap-[8px] pb-[16px] border-b-2 border-secondary border-solid">
           <div className="flex items-center justify-between">
             <h1 className='text-center w-full sm:text-left sm:w-[auto]'>{cryptoDetails?.name} ({cryptoDetails?.symbol}) price</h1>
             <div>
@@ -50,7 +50,7 @@ const CryptoDetailsView = () => {
           </div>
           <div className="mt-[20px] sm:mt-[40px]">
             <div className="flex flex-col gap-[16px]">
-              <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-light">
+              <div className="w-full flex flex-col gap-[16px] bg-white p-[16px] rounded-[24px] shadow-large">
                 <h1>What is {cryptoDetails.name}</h1>
                 {HTMLReactParser(cryptoDetails.description)}
               </div>

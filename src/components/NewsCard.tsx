@@ -10,7 +10,7 @@ const NewsCard = ({ news }: Props) => {
   const contentUrl = news?.image?.thumbnail?.contentUrl;
 
   return (
-    <CardWrapper className='shadow-light rounded-[24px] w-full lg:max-w-[50%] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[250px] md:flex-1'>
+    <CardWrapper className='shadow-large rounded-[24px] w-full lg:max-w-[50%] sm:min-w-[200px] md:min-w-[250px] lg:min-w-[250px] md:flex-1'>
       <a href={news.url} target='_blank' rel='noreferrer' className='h-full'>
         <div className='flex flex-col gap-[16px] justify-between items-between h-full'>
           <div className='flex gap-[8px] justify-between items-start'>

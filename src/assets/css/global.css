@@ -2,7 +2,7 @@
 @import "./fonts.css";
 
 html {
-	@apply bg-lightestBlue font-dmSans text-black;
+	@apply bg-accent-blue font-dmSans text-primary-black;
 }
 
 h1 {
