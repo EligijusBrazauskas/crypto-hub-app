@@ -1,6 +1,6 @@
 import { BulbFilled, FundFilled, HomeFilled } from '@ant-design/icons';
 import { Logo } from 'components';
-import { routes } from 'shared/router/routes';
+import { routes } from 'enums/route.enum';
 import NavigationLink from './common/NavigationLink';
 
 export const Sidebar = () => (

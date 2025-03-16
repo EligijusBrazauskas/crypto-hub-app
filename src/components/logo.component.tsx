@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/svg/crypto-hub-logo.svg';
-import { routes } from '../shared/router/routes';
+import { routes } from '../enums/route.enum';
 
 export const Logo = () => (
   <Link

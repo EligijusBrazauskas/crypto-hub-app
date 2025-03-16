@@ -1,17 +1,17 @@
+import { Route } from "enums";
 import { CurrenciesPage, HomePage } from "pages";
-import { Navigate, Route, Routes as RouterRoutes } from "react-router-dom";
-import { routes } from "shared/router/routes";
+import { Navigate, Route as RouterRoute, Routes as RouterRoutes } from "react-router-dom";
 import { CryptoDetailsView, NewsView } from "views";
 
 export const Routes = () => (
   <RouterRoutes >
-    <Route path={routes.home} element={<HomePage />} />
-    <Route path={routes.cryptocurrencies} element={<CurrenciesPage />} />
-    <Route
-      path={`${routes.cryptocurrencies}/:coinId`}
+    <RouterRoute path={Route.Home} element={<HomePage />} />
+    <RouterRoute path={Route.Currencies} element={<CurrenciesPage />} />
+    <RouterRoute
+      path={`${Route.Currencies}/:coinId`}
       element={<CryptoDetailsView />}
     />
-    <Route path={routes.news} element={<NewsView />} />
-    <Route path={'*'} element={<Navigate to={routes.home} />} />
+    <RouterRoute path={Route.News} element={<NewsView />} />
+    <RouterRoute path={'*'} element={<Navigate to={Route.Home} />} />
   </RouterRoutes>
 )

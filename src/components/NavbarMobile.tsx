@@ -1,6 +1,6 @@
 import { BulbFilled, FundFilled, HomeFilled } from '@ant-design/icons';
 import NavigationLink from 'components/common/NavigationLink';
-import { routes } from 'shared/router/routes';
+import { routes } from 'enums/route.enum';
 import styled from 'styled-components';
 
 interface Props {
