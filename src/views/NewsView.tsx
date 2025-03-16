@@ -1,3 +1,4 @@
+import { PageCard } from 'components';
 import { useState } from 'react';
 import Select, { SingleValue } from 'react-select';
 import MessageCard from '../components/MessageCard';
@@ -37,7 +38,7 @@ const NewsView = () => {
   };
 
   return (
-    <div className='min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-accent-white rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]'>
+    <PageCard >
       <div className='flex flex-col gap-[20px] sm:gap-[40px] h-full'>
         <div className='flex flex-col sm:flex-row gap-[16px] sm:gap-[0px] justify-between items-center'>
           <h1>News</h1>
@@ -66,7 +67,7 @@ const NewsView = () => {
           )}
         </div>
       </div>
-    </div>
+    </PageCard>
   );
 };
 

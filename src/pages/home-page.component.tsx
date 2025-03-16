@@ -1,3 +1,4 @@
+import { PageCard } from "components";
 import millify from "millify";
 import { Link } from "react-router-dom";
 import CryptoCard from "../components/CryptoCard";
@@ -29,37 +30,35 @@ export const HomePage = () => {
   }
 
   return (
-    <div className="min-w-full min-h-screen sm:min-h-full bg-gradient-to-r from-white to-accent-white rounded-[24px] py-[20px] sm:py-[40px] px-[10px] sm:px-[20px]">
-      <div className="flex flex-col items-center sm:items-start gap-[20px] sm:gap-[40px] mb-[20px] sm:mb-[40px]">
-        <h1 className="text-center sm:text-left">Global Crypto Statistics</h1>
-        <div className="flex flex-col gap-[16px] w-full">
-          <div className="flex flex-wrap gap-[16px] text-center sm:text-left">
-            <LabelTextRow
-              label="Total Cryptocurrencies"
-              text={cryptoStats?.total}
-            />
-            <LabelTextRow
-              label="Total Exchanges"
-              text={cryptoStats?.totalExchanges}
-            />
-          </div>
-          <div className="flex flex-wrap gap-[16px] text-center sm:text-left">
-            <LabelTextRow
-              label="Total Market Cap"
-              text={millify(cryptoStats?.totalMarketCap)}
-            />
-            <LabelTextRow
-              label="Total 24h Volume"
-              text={millify(cryptoStats?.total24hVolume)}
-            />
-          </div>
-          <div className="flex flex-wrap gap-[16px] text-center sm:text-left">
-            <LabelTextRow
-              label="Total Markets"
-              text={cryptoStats.totalMarkets}
-            />
-            <div className="flex flex-col flex-1" />
-          </div>
+    <PageCard>
+      <h1 className="text-center sm:text-left">Global Crypto Statistics</h1>
+      <div className="flex flex-col gap-4 w-full">
+        <div className="flex gap-4 text-center sm:text-left">
+          <LabelTextRow
+            label="Total Cryptocurrencies"
+            text={cryptoStats?.total}
+          />
+          <LabelTextRow
+            label="Total Exchanges"
+            text={cryptoStats?.totalExchanges}
+          />
+        </div>
+        <div className="flex flex-wrap gap-[16px] text-center sm:text-left">
+          <LabelTextRow
+            label="Total Market Cap"
+            text={millify(cryptoStats?.totalMarketCap)}
+          />
+          <LabelTextRow
+            label="Total 24h Volume"
+            text={millify(cryptoStats?.total24hVolume)}
+          />
+        </div>
+        <div className="flex flex-wrap gap-[16px] text-center sm:text-left">
+          <LabelTextRow
+            label="Total Markets"
+            text={cryptoStats.totalMarkets}
+          />
+          <div className="flex flex-col flex-1" />
         </div>
       </div>
       <div className="flex flex-col gap-[20px] sm:gap-[40px] mb-[20px] sm:mb-[40px]]">
@@ -88,6 +87,6 @@ export const HomePage = () => {
           })}
         </div>
       </div>
-    </div>
+    </PageCard>
   );
 };
