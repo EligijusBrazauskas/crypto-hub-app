@@ -28,6 +28,22 @@
       },
       "correctness": {
         "useExhaustiveDependencies": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "warn",
+          "options": {
+            "attributes": [
+              "className"
+            ],
+            "functions": [
+              "clsx",
+              "cva",
+              "twMerge"
+            ]
+          }
+        }
       }
     }
   },

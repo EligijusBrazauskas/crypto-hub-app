@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const CardWrapper = styled.div`
 	transition: all 200ms ease-out;
