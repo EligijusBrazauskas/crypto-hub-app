@@ -1,7 +1,7 @@
 import { Route } from "enums";
 import millify from "millify";
 import { Link } from "react-router-dom";
-import { Crypto } from "../shared/models/crypto-model";
+import { Crypto } from "../interfaces/currency.interface";
 import { CardWrapper } from "./common/styles/CardWrapper";
 
 interface Props {
