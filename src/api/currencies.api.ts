@@ -1,5 +1,8 @@
+import { QueryReturnValue } from "@reduxjs/toolkit/dist/query/baseQueryTypes";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { createRequest } from "helpers";
+import { GetCurrenciesQuery, GetCurrencyQuery } from "interfaces";
+import { Params } from "react-router-dom";
 
 const headers: Record<string, string> = {
 	"x-rapidapi-host": "coinranking1.p.rapidapi.com",
@@ -7,13 +10,13 @@ const headers: Record<string, string> = {
 };
 
 export const currenciesApi = createApi({
-	reducerPath: "currenciesApi",
+	reducerPath: "currencies",
 	baseQuery: fetchBaseQuery({ baseUrl: "https://coinranking1.p.rapidapi.com" }),
 	endpoints: (builder) => ({
-		getCurrencies: builder.query<any, any>({
-			query: (count) => createRequest(`/coins?limit=${count}`, headers),
+		getCurrencies: builder.query<QueryReturnValue<GetCurrenciesQuery>, Params>({
+			query: (params) => createRequest("/coins", headers, params),
 		}),
-		getCurrency: builder.query<any, any>({
+		getCurrency: builder.query<QueryReturnValue<GetCurrencyQuery>, string>({
 			query: (coinId) => createRequest(`/coin/${coinId}`, headers),
 		}),
 	}),

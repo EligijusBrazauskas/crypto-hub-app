@@ -1,20 +1,20 @@
+import { ItemCard } from "components";
+import { News } from "interfaces";
 import moment from "moment";
-import { NewsItem } from "../interfaces/news.interface";
-import { CardWrapper } from "./common/styles/CardWrapper";
 
-interface Props {
-  news: NewsItem;
+interface NewsItemProps {
+  news: News;
 }
 
-const NewsCard = ({ news }: Props) => {
+export const NewsItem = ({ news }: NewsItemProps) => {
   const contentUrl = news?.image?.thumbnail?.contentUrl;
 
   return (
-    <CardWrapper className="w-full rounded-[24px] shadow-large sm:min-w-[200px] md:min-w-[250px] md:flex-1 lg:min-w-[250px] lg:max-w-[50%]">
+    <ItemCard>
       <a href={news.url} target="_blank" rel="noreferrer" className="h-full">
         <div className="items-between flex h-full flex-col justify-between gap-[16px]">
           <div className="flex items-start justify-between gap-[8px]">
-            <span className="regular-label">
+            <span >
               {news.name.length > 70
                 ? `${news.name.substring(0, 70)}...`
                 : news.name}
@@ -41,7 +41,7 @@ const NewsCard = ({ news }: Props) => {
                 src={news.provider[0]?.image?.thumbnail?.contentUrl}
                 alt=""
               />
-              <span className="regular-label">{news.provider[0]?.name}</span>
+              <span >{news.provider[0]?.name}</span>
             </div>
             <span>
               {moment(news.datePublished).startOf("seconds").fromNow()}
@@ -49,8 +49,6 @@ const NewsCard = ({ news }: Props) => {
           </div>
         </div>
       </a>
-    </CardWrapper>
+    </ItemCard>
   );
 };
-
-export default NewsCard;

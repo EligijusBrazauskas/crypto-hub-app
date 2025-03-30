@@ -8,6 +8,7 @@ const styles =
 export const PageCard = ({
   children,
   className,
+  ...rest
 }: HTMLAttributes<HTMLDivElement>) => (
-  <Card className={cn(styles, className)}>{children}</Card>
+  <Card className={cn(styles, className)} {...rest}>{children}</Card>
 );

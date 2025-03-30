@@ -2,9 +2,9 @@ import styled from "styled-components";
 import { keyframes } from "styled-components";
 
 const Loading = () => (
-	<div className="w-full h-screen flex justify-center items-center bg-white rounded-[16px]">
-		<Spinner className="w-[32px] h-[32px] rounded-[50%] border-4 border-regularBlue border-solid border-t-gray-200" />
-	</div>
+  <div className="flex flex-1 items-center justify-center rounded-[16px] bg-white">
+    <Spinner className="h-[32px] w-[32px] rounded-[50%] border-4 border-regularBlue border-t-gray-200 border-solid" />
+  </div>
 );
 
 const spin = keyframes`

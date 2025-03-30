@@ -1,4 +1,17 @@
-import { Currency } from "interfaces/currency.interface";
+import {
+	Coin,
+	Currency,
+	GetCurrenciesQuery,
+	GetCurrencyQuery,
+	Stats,
+} from "interfaces/currency.interface";
 import { News } from "interfaces/news.interface";
 
-export type { Currency, News };
+export type {
+	Currency,
+	Stats,
+	GetCurrenciesQuery,
+	GetCurrencyQuery,
+	News,
+	Coin,
+};

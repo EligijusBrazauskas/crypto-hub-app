@@ -1,11 +1,10 @@
 import { useGetCurrenciesQuery } from "api/currencies.api";
-import { PageCard } from "components";
+import { NewsItem, PageCard } from "components";
 import { Currency, News } from "interfaces";
 import { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { useGetNewsQuery } from "../api/news.api";
 import MessageCard from "../components/MessageCard";
-import NewsCard from "../components/NewsCard";
 import Loading from "../components/common/Loading";
 
 type MyOption = { value: string; label: string };
@@ -15,23 +14,21 @@ export const NewsPage = () => {
     SingleValue<MyOption> | MyOption
   >({ value: "all", label: "cryptocurrency" });
 
-  const cryptosCount = 100;
   const newsCount = 20;
 
   const { data: cryptos, isFetching: isFetchingCryptos } =
-    useGetCurrenciesQuery(cryptosCount);
+    useGetCurrenciesQuery({ limit: '100' });
+
   const { data: news, isFetching: isFetchingNews } = useGetNewsQuery({
     category: activeFilter?.value,
     count: newsCount,
   });
 
   const newsList = news?.value;
-  const cryptosList = cryptos?.data?.coins;
+  const currencies = cryptos?.data?.coins ?? [];
 
   const getOptions = (): MyOption[] => {
-    const symbolOptions = cryptosList.map((crypto: Currency) => {
-      return { value: `${crypto.name} crypto`, label: crypto.symbol };
-    });
+    const symbolOptions = currencies.map((crypto: Currency) => ({ value: `${crypto.name} crypto`, label: crypto.symbol }));
 
     return [{ value: "cryptocurrency", label: "ALL" }, ...symbolOptions];
   };
@@ -57,7 +54,7 @@ export const NewsPage = () => {
           ) : (
             <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
               {newsList?.map((news: News, index: any) => {
-                return <NewsCard news={news} key={index} />;
+                return <NewsItem news={news} key={index} />;
               })}
             </div>
           )}

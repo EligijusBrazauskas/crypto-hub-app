@@ -1,7 +1,7 @@
 import { HTMLAttributes } from "react";
 import { cn } from "utils/cn";
 
-const styles = "flex flex-col rounded-3xl";
+const styles = "flex flex-col rounded-3xl p-5";
 
 export const Card = ({
   children,

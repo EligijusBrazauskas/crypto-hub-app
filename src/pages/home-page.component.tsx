@@ -1,25 +1,23 @@
 import { useGetCurrenciesQuery } from "api/currencies.api";
-import { PageCard, StatsSummary } from "components";
+import { CurrencyItem, NewsItem, PageCard, StatsSummary } from "components";
 import { Route } from "enums";
 import { Currency, News } from "interfaces";
 import { Link } from "react-router-dom";
 import { useGetNewsQuery } from "../api/news.api";
-import CryptoCard from "../components/CryptoCard";
-import NewsCard from "../components/NewsCard";
 import Loading from "../components/common/Loading";
 
 export const HomePage = () => {
-  const count = 10;
   const newsCount = 6;
 
-  const { data, isFetching } = useGetCurrenciesQuery(count);
+  const { data, isFetching } = useGetCurrenciesQuery({ limit: '10' });
+
   const { data: news, isFetching: isFetchingNews } = useGetNewsQuery({
     category: "Cryptocurrency",
     count: newsCount,
   });
 
-  const cryptoStats = data?.data?.stats;
-  const cryptos = data?.data?.coins;
+  const stats = data?.data?.stats;
+  const currencies = data?.data?.coins;
   const newsList = news?.value;
 
   if (isFetching || isFetchingNews) {
@@ -28,15 +26,15 @@ export const HomePage = () => {
 
   return (
     <PageCard>
-      <StatsSummary stats={cryptoStats} />
+      {stats && <StatsSummary stats={stats} />}
       <div className="sm:mb-[40px]] mb-[20px] flex flex-col gap-[20px] sm:gap-[40px]">
         <div className="flex flex-col items-center justify-between sm:flex-row">
           <h1 className="text-center sm:text-left">Top 10 Cryptos</h1>
           <Link to={Route.Currencies}>Show More</Link>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
-          {cryptos?.map((crypto: Currency, index: any) => {
-            return <CryptoCard crypto={crypto} key={index} />;
+          {currencies?.map((currency: Currency) => {
+            return <CurrencyItem key={currency.name} currency={currency} />;
           })}
         </div>
       </div>
@@ -46,8 +44,8 @@ export const HomePage = () => {
           <Link to={Route.News}>Show More</Link>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
-          {newsList?.map((news: News, index: any) => {
-            return <NewsCard news={news} key={index} />;
+          {newsList?.map((news: News, index: number) => {
+            return <NewsItem news={news} key={index} />;
           })}
         </div>
       </div>

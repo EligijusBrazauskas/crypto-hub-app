@@ -1,29 +1,28 @@
 import { useGetCurrenciesQuery } from "api/currencies.api";
-import { PageCard, PageHeader } from "components";
+import { CurrencyItem, PageCard, PageHeader } from "components";
 import { Currency } from "interfaces";
 import { useEffect, useState } from "react";
-import CryptoCard from "../components/CryptoCard";
 import Loading from "../components/common/Loading";
 
 export const CurrenciesPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cryptosList, setCryptosList] = useState<Currency[]>([]);
 
-  const count = 100;
+  const { data, isFetching } = useGetCurrenciesQuery({ limit: '100' });
 
-  const { data, isFetching } = useGetCurrenciesQuery(count);
-
-  const cryptos = data?.data?.coins;
+  const currencies = data?.data?.coins;
 
   useEffect(() => {
     if (!isFetching) {
-      setCryptosList(cryptos);
+      if (currencies && currencies?.length > 0) {
+        setCryptosList(currencies);
 
-      const filteredList = cryptos.filter((coin: Currency) =>
-        coin.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
-      );
+        const filteredList = currencies.filter((coin: Currency) =>
+          coin.name.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
+        );
 
-      setCryptosList(filteredList);
+        setCryptosList(filteredList);
+      }
     }
   }, [data, searchTerm]);
 
@@ -31,10 +30,12 @@ export const CurrenciesPage = () => {
 
   return (
     <PageCard>
-      <PageHeader onSearch={setSearchTerm} />
+      <PageHeader
+        onSearch={setSearchTerm}
+      />
       <div className="flex w-full flex-wrap gap-4">
-        {cryptosList?.map((crypto: Currency) => {
-          return <CryptoCard crypto={crypto} key={crypto.name} />;
+        {cryptosList?.map((currency: Currency) => {
+          return <CurrencyItem key={currency.name} currency={currency} />;
         })}
       </div>
     </PageCard>

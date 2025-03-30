@@ -11,12 +11,12 @@ const newsSearchUrlParams = (category: string, count: number) => {
 };
 
 export const newsApi = createApi({
-	reducerPath: "newsApi",
+	reducerPath: "news",
 	baseQuery: fetchBaseQuery({
 		baseUrl: "https://news-api14.p.rapidapi.com/v2",
 	}),
 	endpoints: (builder) => ({
-		getNews: builder.query<any, any>({
+		getNews: builder.query({
 			query: ({ category, count }) =>
 				createRequest(newsSearchUrlParams(category, count), headers),
 		}),

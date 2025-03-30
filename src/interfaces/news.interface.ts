@@ -1,8 +1,8 @@
 export interface News {
 	url: string;
 	name: string;
-	image: string;
+	image: any;
 	description: string;
 	datePublished: Date;
-	provider: string;
+	provider: any;
 }
