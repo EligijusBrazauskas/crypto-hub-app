@@ -1,24 +1,18 @@
-import { useGetCurrenciesQuery } from "api/currencies.api";
+import { useGetCurrenciesQuery } from "api/currency.api";
 import { CurrencyItem, NewsItem, PageCard, StatsSummary } from "components";
 import { Route } from "enums";
-import { Currency, News } from "interfaces";
+import { Currency } from "interfaces";
 import { Link } from "react-router-dom";
 import { useGetNewsQuery } from "../api/news.api";
 import Loading from "../components/common/Loading";
 
 export const HomePage = () => {
-  const newsCount = 6;
-
-  const { data, isFetching } = useGetCurrenciesQuery({ limit: '10' });
-
-  const { data: news, isFetching: isFetchingNews } = useGetNewsQuery({
-    category: "Cryptocurrency",
-    count: newsCount,
-  });
+  const { data, isFetching } = useGetCurrenciesQuery();
+  const { data: news, isFetching: isFetchingNews } = useGetNewsQuery();
 
   const stats = data?.data?.stats;
   const currencies = data?.data?.coins;
-  const newsList = news?.value;
+  const newsList = news?.data;
 
   if (isFetching || isFetchingNews) {
     return <Loading />;
@@ -44,8 +38,8 @@ export const HomePage = () => {
           <Link to={Route.News}>Show More</Link>
         </div>
         <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
-          {newsList?.map((news: News, index: number) => {
-            return <NewsItem news={news} key={index} />;
+          {newsList?.map((article, index: number) => {
+            return <NewsItem article={article} key={index} />;
           })}
         </div>
       </div>

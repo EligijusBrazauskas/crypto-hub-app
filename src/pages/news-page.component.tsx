@@ -1,6 +1,6 @@
-import { useGetCurrenciesQuery } from "api/currencies.api";
+import { useGetCurrenciesQuery } from "api/currency.api";
 import { NewsItem, PageCard } from "components";
-import { Currency, News } from "interfaces";
+import { Currency } from "interfaces";
 import { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { useGetNewsQuery } from "../api/news.api";
@@ -14,17 +14,12 @@ export const NewsPage = () => {
     SingleValue<MyOption> | MyOption
   >({ value: "all", label: "cryptocurrency" });
 
-  const newsCount = 20;
-
   const { data: cryptos, isFetching: isFetchingCryptos } =
-    useGetCurrenciesQuery({ limit: '100' });
+    useGetCurrenciesQuery({ params: { limit: "100" } });
 
-  const { data: news, isFetching: isFetchingNews } = useGetNewsQuery({
-    category: activeFilter?.value,
-    count: newsCount,
-  });
+  const { data: news, isFetching: isFetchingNews } = useGetNewsQuery();
 
-  const newsList = news?.value;
+  const newsList = news?.data;
   const currencies = cryptos?.data?.coins ?? [];
 
   const getOptions = (): MyOption[] => {
@@ -53,8 +48,8 @@ export const NewsPage = () => {
             <Loading />
           ) : (
             <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
-              {newsList?.map((news: News, index: any) => {
-                return <NewsItem news={news} key={index} />;
+              {newsList?.map((article, index: number) => {
+                return <NewsItem article={article} key={index} />;
               })}
             </div>
           )}

@@ -1,3 +1,5 @@
+import { QueryRequestParams } from "interfaces";
+
 export interface Currency {
 	price: string;
 	uuid: string;
@@ -19,7 +21,11 @@ export interface Stats {
 	total24hVolume: string;
 }
 
-export interface GetCurrenciesQuery {
+export interface GetCurrencyQueryParams extends QueryRequestParams {
+	coinId?: string;
+}
+
+export interface GetCurrenciesQueryResponse {
 	coins: Currency[];
 	stats: Stats;
 }
@@ -51,6 +57,6 @@ export interface Coin extends Currency {
 	supply: Supply;
 }
 
-export interface GetCurrencyQuery {
+export interface GetCurrencyQueryResponse {
 	coin: Coin;
 }

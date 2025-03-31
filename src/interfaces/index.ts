@@ -1,17 +1,29 @@
 import {
 	Coin,
 	Currency,
-	GetCurrenciesQuery,
-	GetCurrencyQuery,
+	GetCurrenciesQueryResponse,
+	GetCurrencyQueryParams,
+	GetCurrencyQueryResponse,
 	Stats,
 } from "interfaces/currency.interface";
-import { News } from "interfaces/news.interface";
+import {
+	Article,
+	GetNewsQueryParams,
+	GetNewsQueryParamsRequired,
+	GetNewsQueryResponse,
+} from "interfaces/news.interface";
+import { QueryRequestParams } from "interfaces/query.interface";
 
 export type {
 	Currency,
 	Stats,
-	GetCurrenciesQuery,
-	GetCurrencyQuery,
-	News,
+	GetCurrenciesQueryResponse,
+	GetCurrencyQueryResponse,
+	Article,
+	GetNewsQueryParams,
+	GetNewsQueryParamsRequired,
+	GetNewsQueryResponse,
 	Coin,
+	QueryRequestParams,
+	GetCurrencyQueryParams,
 };

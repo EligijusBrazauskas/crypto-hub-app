@@ -8,7 +8,7 @@ import {
   StopOutlined,
   ThunderboltFilled,
 } from "@ant-design/icons";
-import { useGetCurrencyQuery } from "api/currencies.api";
+import { useGetCurrencyQuery } from "api/currency.api";
 import { PageCard } from "components";
 import { Route } from "enums";
 import HTMLReactParser from "html-react-parser";
@@ -20,7 +20,7 @@ import Loading from "../components/common/Loading";
 export const CurrencyPage = () => {
   const { coinId } = useParams();
   const navigate = useNavigate()
-  const { data, isFetching, status } = useGetCurrencyQuery(coinId ?? '');
+  const { data, isFetching, status } = useGetCurrencyQuery({ coinId });
   const coin = data?.data?.coin;
 
   const stats = [
@@ -79,7 +79,7 @@ export const CurrencyPage = () => {
   }
 
   if (status === 'rejected') {
-    navigate(Route.Home)
+    navigate(Route.Currencies)
   }
 
   if (!coin) {

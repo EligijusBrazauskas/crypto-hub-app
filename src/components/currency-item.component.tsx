@@ -5,11 +5,11 @@ import { Currency } from "interfaces";
 import millify from "millify";
 import { useNavigate } from "react-router-dom";
 
-interface Props {
+interface CurrencyItemProps {
   currency: Currency;
 }
 
-export const CurrencyItem = ({ currency }: Props) => {
+export const CurrencyItem = ({ currency }: CurrencyItemProps) => {
   const navigate = useNavigate();
   const { uuid, rank, name, iconUrl, price, marketCap, change, } = currency
 

@@ -1,2 +1,2 @@
-export { currenciesApi } from "./currencies.api";
+export { currenciesApi } from "./currency.api";
 export { newsApi } from "./news.api";

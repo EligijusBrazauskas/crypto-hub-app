@@ -1,4 +1,4 @@
-import { useGetCurrenciesQuery } from "api/currencies.api";
+import { useGetCurrenciesQuery } from "api/currency.api";
 import { CurrencyItem, PageCard, PageHeader } from "components";
 import { Currency } from "interfaces";
 import { useEffect, useState } from "react";
@@ -8,7 +8,7 @@ export const CurrenciesPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [cryptosList, setCryptosList] = useState<Currency[]>([]);
 
-  const { data, isFetching } = useGetCurrenciesQuery({ limit: '100' });
+  const { data, isFetching } = useGetCurrenciesQuery({ params: { limit: '100' } });
 
   const currencies = data?.data?.coins;
 

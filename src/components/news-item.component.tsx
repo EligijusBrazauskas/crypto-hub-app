@@ -1,50 +1,44 @@
 import { ItemCard } from "components";
-import { News } from "interfaces";
+import { Article } from "interfaces";
 import moment from "moment";
 
 interface NewsItemProps {
-  news: News;
+  article: Article;
 }
 
-export const NewsItem = ({ news }: NewsItemProps) => {
-  const contentUrl = news?.image?.thumbnail?.contentUrl;
+export const NewsItem = ({ article }: NewsItemProps) => {
+  const { url, title, thumbnail, excerpt, authors, date } = article
 
   return (
     <ItemCard>
-      <a href={news.url} target="_blank" rel="noreferrer" className="h-full">
+      <a href={url} target="_blank" rel="noreferrer" className="h-full">
         <div className="items-between flex h-full flex-col justify-between gap-[16px]">
           <div className="flex items-start justify-between gap-[8px]">
-            <span >
-              {news.name.length > 70
-                ? `${news.name.substring(0, 70)}...`
-                : news.name}
+            <span>
+              {title.length > 70
+                ? `${title.substring(0, 70)}...`
+                : title}
             </span>
             <div>
               <img
-                src={contentUrl}
-                alt=""
-                className="min-w-[62px] max-w-[62px] rounded-[14px]"
-              />
+                src={thumbnail}
+                alt="Article thumbnail"
+                className="min-w-[62px] max-w-[62px] rounded-[14px]" />
             </div>
           </div>
           <div>
             <span>
-              {news.description.length > 100
-                ? `${news.description.substring(0, 100)}...`
-                : news.description}
+              {excerpt.length > 100
+                ? `${excerpt.substring(0, 100)}...`
+                : excerpt}
             </span>
           </div>
           <div className="flex items-end justify-between gap-[8px]">
             <div className="flex items-end gap-[8px]">
-              <img
-                className="w-[36px]"
-                src={news.provider[0]?.image?.thumbnail?.contentUrl}
-                alt=""
-              />
-              <span >{news.provider[0]?.name}</span>
+              <span>Authors: {authors.join(" ")}</span>
             </div>
             <span>
-              {moment(news.datePublished).startOf("seconds").fromNow()}
+              {moment(date).startOf("seconds").fromNow()}
             </span>
           </div>
         </div>
