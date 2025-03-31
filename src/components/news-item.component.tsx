@@ -7,7 +7,7 @@ interface NewsItemProps {
 }
 
 export const NewsItem = ({ article }: NewsItemProps) => {
-  const { url, title, thumbnail, excerpt, authors, date } = article
+  const { url, title, thumbnail, excerpt, publisher, date } = article
 
   return (
     <ItemCard>
@@ -35,7 +35,8 @@ export const NewsItem = ({ article }: NewsItemProps) => {
           </div>
           <div className="flex items-end justify-between gap-[8px]">
             <div className="flex items-end gap-[8px]">
-              <span>Authors: {authors.join(" ")}</span>
+              <span>{publisher.name}</span>
+              <img src={publisher.favicon} alt={publisher.name} />
             </div>
             <span>
               {moment(date).startOf("seconds").fromNow()}
