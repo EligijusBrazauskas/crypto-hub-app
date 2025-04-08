@@ -6,7 +6,7 @@ interface StatsSummaryProps {
 
 export const StatsSummary = ({ stats }: StatsSummaryProps) => (
   <div className="flex flex-col gap-5 sm:gap-10">
-    <h1 className="text-center sm:text-left">Global Crypto Statistics</h1>
+    <h2 className="text-center sm:text-left">Global Crypto Statistics</h2>
     <div className="flex w-full flex-wrap gap-4">
       <div className="flex flex-1 flex-col gap-4 text-center sm:text-left">
         <div className="flex flex-col">
