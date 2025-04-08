@@ -1,6 +1,5 @@
 import { BulbFilled, FundFilled, HomeFilled } from "@ant-design/icons";
 import NavigationLink from "components/common/NavigationLink";
-import { Route } from "enums";
 import styled from "styled-components";
 
 interface Props {
@@ -13,17 +12,17 @@ const NavbarMobile = ({ scrollPosition }: Props) => (
     className="fixed bottom-0 z-40 w-full bg-accent-blue px-[15px] py-[16px] shadow-base sm:hidden"
   >
     <div className="flex items-center justify-center gap-[1px]">
-      <NavigationLink pathTo={Route.Home} text="Home" isMobile>
+      <NavigationLink pathTo="/" text="Home" isMobile>
         <HomeFilled />
       </NavigationLink>
       <NavigationLink
-        pathTo={Route.Currencies}
+        pathTo="currencies"
         text="Currencies"
         isMobile
       >
         <FundFilled />
       </NavigationLink>
-      <NavigationLink pathTo={Route.News} text="News" isMobile>
+      <NavigationLink pathTo="news" text="News" isMobile>
         <BulbFilled />
       </NavigationLink>
     </div>

@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { ItemCard } from "components";
-import { Route } from "enums";
 import { Currency } from "interfaces";
 import millify from "millify";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,7 @@ export const CurrencyItem = ({ currency }: CurrencyItemProps) => {
 
   return (
     <ItemCard
-      onClick={() => navigate(`${Route.Currencies}/${uuid}`)}
+      onClick={() => navigate(`/currencies/${uuid}`)}
     >
       <div className="flex w-full items-center justify-between border-secondary border-b-2 border-solid pb-[16px]">
         <div className="flex gap-[6px]">

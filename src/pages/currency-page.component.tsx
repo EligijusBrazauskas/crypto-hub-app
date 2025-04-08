@@ -10,7 +10,6 @@ import {
 } from "@ant-design/icons";
 import { useGetCurrencyQuery } from "api/currency.api";
 import { PageCard } from "components";
-import { Route } from "enums";
 import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 import { useNavigate, useParams } from "react-router-dom";
@@ -79,7 +78,7 @@ export const CurrencyPage = () => {
   }
 
   if (status === 'rejected') {
-    navigate(Route.Currencies)
+    navigate('/currencies')
   }
 
   if (!coin) {
