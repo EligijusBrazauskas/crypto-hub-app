@@ -1,9 +1,9 @@
 import { useGetCurrenciesQuery } from "api/currency.api";
+import { useGetNewsQuery } from "api/news.api";
 import { CurrencyItem, NewsItem, PageCard, StatsSummary } from "components";
 import { Flex, Grid } from "components/base";
 import { Spinner } from "components/common";
 import { Link } from "react-router-dom";
-import { useGetNewsQuery } from "../api/news.api";
 
 export const HomePage = () => {
   const { data, isFetching } = useGetCurrenciesQuery();
