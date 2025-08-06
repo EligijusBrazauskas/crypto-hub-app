@@ -5,7 +5,6 @@ import { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { useGetNewsQuery } from "../api/news.api";
 import MessageCard from "../components/MessageCard";
-import Loading from "../components/common/Loading";
 
 type MyOption = { value: string; label: string };
 
@@ -45,7 +44,7 @@ export const NewsPage = () => {
         </div>
         <div className="h-full w-full">
           {isFetchingNews ? (
-            <Loading />
+            <div />
           ) : (
             <div className="flex w-full flex-col flex-wrap gap-[16px] sm:flex-row">
               {newsList?.map((article, index: number) => {

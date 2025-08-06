@@ -3,7 +3,7 @@ import { HTMLAttributes } from "react";
 import { cn } from "utils/cn";
 
 const styles =
-  "w-full flex-1 bg-gradient-to-r from-white to-accent-white py-5 sm:py-10 px-2 sm:px-5 gap-5 sm:gap-10";
+  "w-full flex-1 bg-gradient-to-r from-white to-accent-white pt-5 pb-20 sm:py-10 px-2 sm:px-5 gap-10";
 
 export const PageCard = ({
   children,

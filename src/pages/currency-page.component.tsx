@@ -14,7 +14,6 @@ import HTMLReactParser from "html-react-parser";
 import millify from "millify";
 import { useNavigate, useParams } from "react-router-dom";
 import CryptoDetailsCard from "../components/CrytpoDetailsCard";
-import Loading from "../components/common/Loading";
 
 export const CurrencyPage = () => {
   const { coinId } = useParams();
@@ -72,10 +71,6 @@ export const CurrencyPage = () => {
       icon: <DollarCircleFilled />,
     },
   ];
-
-  if (isFetching) {
-    return <Loading />;
-  }
 
   if (status === 'rejected') {
     navigate('/currencies')

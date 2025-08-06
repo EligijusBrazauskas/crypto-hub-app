@@ -10,8 +10,8 @@ export const NewsItem = ({ article }: NewsItemProps) => {
   const { url, title, thumbnail, excerpt, publisher, date } = article
 
   return (
-    <ItemCard>
-      <a href={url} target="_blank" rel="noreferrer" className="h-full">
+    <a href={url} target="_blank" rel="noreferrer" className="h-full">
+      <ItemCard>
         <div className="items-between flex h-full flex-col justify-between gap-[16px]">
           <div className="flex items-start justify-between gap-[8px]">
             <span>
@@ -43,7 +43,7 @@ export const NewsItem = ({ article }: NewsItemProps) => {
             </span>
           </div>
         </div>
-      </a>
-    </ItemCard>
+      </ItemCard>
+    </a>
   );
 };

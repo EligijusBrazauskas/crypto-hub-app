@@ -2,7 +2,6 @@ import { useGetCurrenciesQuery } from "api/currency.api";
 import { CurrencyItem, PageCard, PageHeader } from "components";
 import { Currency } from "interfaces";
 import { useEffect, useState } from "react";
-import Loading from "../components/common/Loading";
 
 export const CurrenciesPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -26,7 +25,6 @@ export const CurrenciesPage = () => {
     }
   }, [data, searchTerm]);
 
-  if (isFetching) return <Loading />;
 
   return (
     <PageCard>
