@@ -1,3 +1,4 @@
+import { Flex } from "components/base";
 import { FallbackText } from "components/common";
 import { Stats } from "interfaces";
 
@@ -6,33 +7,33 @@ interface StatsSummaryProps {
 }
 
 export const StatsSummary = ({ stats }: StatsSummaryProps) => (
-  <div className="flex flex-col gap-10">
+  <Flex className="flex-col gap-10">
     <h2 className="text-center sm:text-left">Global Crypto Statistics</h2>
-    <div className="flex w-full flex-wrap gap-4">
-      <div className="flex flex-1 flex-col gap-4 text-center sm:text-left">
-        <div className="flex flex-col">
-          <span>Total Cryptocurrencies</span>
-          <FallbackText>{stats?.total}</FallbackText>
-        </div>
-        <div className="flex flex-col">
-          <span>Total Exchanges</span>
-          <FallbackText>{stats?.totalExchanges}</FallbackText>
-        </div>
-        <div className="flex flex-col">
-          <span>Total Market Cap</span>
-          <FallbackText>{stats?.totalMarketCap}</FallbackText>
-        </div>
-      </div>
-      <div className="flex flex-1 flex-col gap-4 text-center sm:text-left">
-        <div className="flex flex-col">
-          <span>Total 24h Volume</span>
-          <FallbackText>{stats?.total24hVolume}</FallbackText>
-        </div>
-        <div className="flex flex-col">
-          <span>Total Markets</span>
-          <FallbackText>{stats?.totalMarkets}</FallbackText>
-        </div>
-      </div>
-    </div>
-  </div>
+    <Flex className="w-full flex-wrap gap-4">
+      <Flex className="flex-1 flex-col gap-4 text-center sm:text-left">
+        <Flex className="flex-col">
+          <span className="font-semibold">Total Cryptocurrencies</span>
+          <FallbackText className="text-sm">{stats?.total}</FallbackText>
+        </Flex>
+        <Flex className="flex-col">
+          <span className="font-semibold">Total Exchanges</span>
+          <FallbackText className="text-sm">{stats?.totalExchanges}</FallbackText>
+        </Flex>
+        <Flex className="flex-col">
+          <span className="font-semibold">Total Market Cap</span>
+          <FallbackText className="text-sm">{stats?.totalMarketCap}</FallbackText>
+        </Flex>
+      </Flex>
+      <Flex className="flex-1 flex-col gap-4 text-center sm:text-left">
+        <Flex className="flex-col">
+          <span className="font-semibold">Total 24h Volume</span>
+          <FallbackText className="text-sm">{stats?.total24hVolume}</FallbackText>
+        </Flex>
+        <Flex className="flex-col">
+          <span className="font-semibold">Total Markets</span>
+          <FallbackText className="text-sm">{stats?.totalMarkets}</FallbackText>
+        </Flex>
+      </Flex>
+    </Flex>
+  </Flex>
 );

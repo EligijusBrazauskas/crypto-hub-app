@@ -1,20 +1,30 @@
 import { BulbFilled, FundFilled, HomeFilled } from "@ant-design/icons";
 import { Logo } from "components";
-import NavigationLink from "./common/NavigationLink";
+import { Flex } from "components/base";
+import { NavigationLink } from "components/common";
 
 export const Sidebar = () => (
-  <div className="fixed hidden h-screen w-64 flex-col gap-10 bg-accent-blue px-8 pt-14 pb-10 sm:flex">
+  <Flex className="fixed hidden h-screen w-64 flex-col gap-10 bg-accent-blue px-8 pt-14 pb-10 sm:flex">
     <Logo />
-    <div className="flex w-full flex-col gap-2">
-      <NavigationLink pathTo='/' text="Home">
-        <HomeFilled />
+    <Flex className="w-full flex-col gap-2">
+      <NavigationLink pathTo="/">
+        <Flex className="items-center gap-4">
+          <HomeFilled />
+          Home
+        </Flex>
       </NavigationLink>
-      <NavigationLink pathTo='currencies' text="Currencies">
-        <FundFilled />
+      <NavigationLink pathTo="currencies">
+        <Flex className="items-center gap-4">
+          <FundFilled />
+          Currencies
+        </Flex>
       </NavigationLink>
-      <NavigationLink pathTo="news" text="News">
-        <BulbFilled />
+      <NavigationLink pathTo="news">
+        <Flex className="items-center gap-4">
+          <BulbFilled />
+          News
+        </Flex>
       </NavigationLink>
-    </div>
-  </div>
+    </Flex>
+  </Flex>
 );

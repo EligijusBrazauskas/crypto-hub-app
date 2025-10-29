@@ -17,24 +17,24 @@ export const CurrencyItem = ({ currency }: CurrencyItemProps) => {
       <ItemCard>
         <Flex className="items-center justify-between border-secondary border-b pb-4">
           <Flex className="gap-1.5">
-            <span>{rank}.</span>
-            <span>{name}</span>
+            <span className="font-semibold">{rank}.</span>
+            <span className="font-semibold">{name}</span>
           </Flex>
           <img src={iconUrl} alt="currency icon" width='30px' height="30px" />
         </Flex>
         <Flex className="flex-col gap-2 pt-4">
-          <span>Price: ${millify(+price)}</span>
-          <span>
+          <span className="text-sm">Price: ${millify(+price)}</span>
+          <span className="text-sm">
             Market Cap: ${millify(+marketCap)}
           </span>
           <Flex className="gap-1.5">
-            <span>Daily Change:</span>
-            <span className={clsx({ "text-red-500": +change < 0, "text-green-500": +change > 0 })}>
+            <span className="text-sm">Daily Change:</span>
+            <span className={clsx('text-sm', { "text-red-600": +change < 0, "text-green-600": +change > 0 })}>
               {change}
             </span>
           </Flex>
         </Flex>
-      </ItemCard >
+      </ItemCard>
     </Link>
   );
 };

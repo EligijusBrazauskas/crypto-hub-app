@@ -1,4 +1,5 @@
 import { ItemCard } from "components";
+import { Flex } from "components/base";
 import { Article } from "interfaces";
 import moment from "moment";
 
@@ -7,42 +8,40 @@ interface NewsItemProps {
 }
 
 export const NewsItem = ({ article }: NewsItemProps) => {
-  const { url, title, thumbnail, excerpt, publisher, date } = article
+  const {
+    url,
+    title,
+    thumbnail,
+    excerpt,
+    publisher: { favicon, name },
+    date,
+  } = article;
 
   return (
     <a href={url} target="_blank" rel="noreferrer" className="h-full">
-      <ItemCard>
-        <div className="items-between flex h-full flex-col justify-between gap-[16px]">
-          <div className="flex items-start justify-between gap-[8px]">
-            <span>
-              {title.length > 70
-                ? `${title.substring(0, 70)}...`
-                : title}
-            </span>
-            <div>
+      <ItemCard className="gap-4">
+        <img
+          src={thumbnail}
+          alt="Article thumbnail"
+          className="h-20 w-full rounded-md object-cover"
+        />
+        <Flex className="items-between h-full flex-col justify-between gap-4">
+          <span className="line-clamp-2 font-semibold">{title}</span>
+          <p className="line-clamp-4 text-gray-500">{excerpt}</p>
+          <Flex className="items-center justify-between gap-2">
+            <Flex className="items-center gap-2">
               <img
-                src={thumbnail}
-                alt="Article thumbnail"
-                className="min-w-[62px] max-w-[62px] rounded-[14px]" />
-            </div>
-          </div>
-          <div>
-            <span>
-              {excerpt.length > 100
-                ? `${excerpt.substring(0, 100)}...`
-                : excerpt}
-            </span>
-          </div>
-          <div className="flex items-end justify-between gap-[8px]">
-            <div className="flex items-end gap-[8px]">
-              <span>{publisher.name}</span>
-              <img src={publisher.favicon} alt={publisher.name} />
-            </div>
-            <span>
+                src={favicon}
+                alt={`${name} icon`}
+                className="h-10 w-10 rounded-md"
+              />
+              <span className="line-clamp-1 text-xs">{name}</span>
+            </Flex>
+            <span className="text-xs">
               {moment(date).startOf("seconds").fromNow()}
             </span>
-          </div>
-        </div>
+          </Flex>
+        </Flex>
       </ItemCard>
     </a>
   );

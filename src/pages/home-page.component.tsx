@@ -19,7 +19,12 @@ export const HomePage = () => {
       <Flex className="flex-col gap-10">
         <Flex className="flex-col items-center justify-between sm:flex-row">
           <h2 className="text-center sm:text-left">Top 10 Cryptos</h2>
-          <Link to="currencies">Show More</Link>
+          <Link
+            to="currencies"
+            className="transition duration-150 hover:text-blue-400"
+          >
+            Show More
+          </Link>
         </Flex>
         <Spinner isLoading={isFetching}>
           <Grid className="grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -32,7 +37,12 @@ export const HomePage = () => {
       <Flex className="flex-col gap-10">
         <Flex className="flex-col items-center justify-between sm:flex-row">
           <h2 className="text-center sm:text-left">News</h2>
-          <Link to="news">Show More</Link>
+          <Link
+            to="news"
+            className="transition duration-150 hover:text-blue-400"
+          >
+            Show More
+          </Link>
         </Flex>
         <Spinner isLoading={isFetchingNews}>
           <Grid className="grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
