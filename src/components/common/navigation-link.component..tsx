@@ -2,16 +2,12 @@ import clsx from "clsx";
 import { PropsWithChildren } from "react";
 import { NavLink } from "react-router-dom";
 
-interface NavigationLinkProps {
-  pathTo: string;
-}
-
 export const NavigationLink = ({
-  pathTo,
+  to,
   children,
-}: PropsWithChildren<NavigationLinkProps>) => (
+}: PropsWithChildren<{ to: string; }>) => (
   <NavLink
-    to={pathTo}
+    to={to}
     className={({ isActive }) =>
       clsx(
         "flex w-full items-center justify-center rounded-2xl p-[15px] text-secondary transition-all hover:bg-blue-100 sm:justify-start",

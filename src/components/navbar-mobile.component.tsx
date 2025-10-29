@@ -17,13 +17,13 @@ export const NavbarMobile = () => {
         },
       )}
     >
-      <NavigationLink pathTo="/">
+      <NavigationLink to="/">
         <HomeFilled />
       </NavigationLink>
-      <NavigationLink pathTo="currencies">
+      <NavigationLink to="currencies">
         <FundFilled />
       </NavigationLink>
-      <NavigationLink pathTo="news">
+      <NavigationLink to="news">
         <BulbFilled />
       </NavigationLink>
     </Flex>
