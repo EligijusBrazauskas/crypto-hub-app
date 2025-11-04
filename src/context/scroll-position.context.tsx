@@ -1,35 +1,35 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 
 export const ScrollPositionContext = React.createContext({
-	position: 0,
-	handlePosition: (positionValue: number) => {},
+  position: 0,
+  handlePosition: (positionValue: number) => { },
 });
 
-interface Props {
-	children: any;
+interface ScrollPositionProviderProps {
+  children: ReactNode;
 }
 
-const ScrollPositionProvider = ({ children }: Props) => {
-	const [position, setPosition] = useState(0);
+const ScrollPositionProvider = ({ children }: ScrollPositionProviderProps) => {
+  const [position, setPosition] = useState(0);
 
-	const positionHandler = (): any => {
-		setPosition(window.scrollY);
-	};
+  const positionHandler = () => {
+    setPosition(window.scrollY);
+  };
 
-	useEffect(() => {
-		window.addEventListener("scroll", positionHandler);
-	}, []);
+  useEffect(() => {
+    window.addEventListener("scroll", positionHandler);
+  }, []);
 
-	const value = {
-		position,
-		handlePosition: positionHandler,
-	};
+  const value = {
+    position,
+    handlePosition: positionHandler,
+  };
 
-	return (
-		<ScrollPositionContext.Provider value={value}>
-			{children}
-		</ScrollPositionContext.Provider>
-	);
+  return (
+    <ScrollPositionContext.Provider value={value}>
+      {children}
+    </ScrollPositionContext.Provider>
+  );
 };
 
 export default ScrollPositionProvider;
