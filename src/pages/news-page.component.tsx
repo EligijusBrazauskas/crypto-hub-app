@@ -3,7 +3,7 @@ import { NewsItem, PageCard } from "components";
 import { Flex, Grid } from "components/base";
 import { Spinner } from "components/common";
 import { Article, Currency } from "interfaces";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import Select, { SingleValue } from "react-select";
 import { defaultParams, useGetNewsQuery } from "../api/news.api";
 
@@ -30,14 +30,14 @@ export const NewsPage = () => {
   const newsList = news?.data;
   const currencies = cryptos?.data?.coins ?? [];
 
-  const getOptions = useMemo(() => {
+  const getOptions = () => {
     const symbolOptions = currencies.map((crypto: Currency) => ({
       value: crypto.name,
       label: crypto.symbol,
     }));
 
     return [defaultOption, ...symbolOptions];
-  }, [currencies]);
+  };
 
   return (
     <PageCard>
@@ -46,7 +46,7 @@ export const NewsPage = () => {
         {!isFetchingCryptos && (
           <Select
             className="w-full rounded-md text-sm sm:w-auto"
-            options={getOptions}
+            options={getOptions()}
             onChange={setActiveFilter}
             placeholder="Select Category"
             isSearchable
