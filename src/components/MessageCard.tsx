@@ -5,9 +5,9 @@ interface Props {
 
 const MessageCard = ({ text, children }: Props) => {
 	return (
-		<div className='w-full flex flex-col justify-center items-center p-[20px] rounded-[24px] bg-lightestBlue text-center'>
-			<h2 className='text-black'>{text}</h2>
-			<div className='text-[100px] text-black'>{children}</div>
+		<div className="w-full flex flex-col justify-center items-center p-[20px] rounded-[24px] bg-accent-blue text-center">
+			<h2 className="text-primary-black">{text}</h2>
+			<div className="text-[100px] text-primary-black">{children}</div>
 		</div>
 	);
 };

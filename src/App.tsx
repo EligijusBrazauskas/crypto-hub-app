@@ -1,13 +1,14 @@
-import MainLayout from './layout/main/MainLayout';
-import './assets/scss/global.scss';
-import ScrollPositionProvider from './shared/context/scroll-position-context';
+import "assets/css/global.css";
+import { Routes } from "routes";
+import ScrollPositionProvider from "./context/scroll-position.context";
+import { MainLayout } from "./layouts";
 
-const App = () => (
-	<ScrollPositionProvider>
-		<div className='App'>
-			<MainLayout />
-		</div>
-	</ScrollPositionProvider>
+export const App = () => (
+  <div className="app">
+    <ScrollPositionProvider>
+      <MainLayout>
+        <Routes />
+      </MainLayout>
+    </ScrollPositionProvider>
+  </div>
 );
-
-export default App;
